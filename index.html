@@ -1,0 +1,36 @@
+<style>
+    #main {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+    }
+    #qrcode {
+        margin: 3%;
+    }
+</style>
+
+<script src="qrcode.min.js"></script>
+<script type="text/javascript">
+
+var value = 0;
+
+function setval(v){
+    value = v
+}
+
+function gen_qr(){
+    q = document.getElementById("qrcode")
+    q.innerHTML = ""
+    new QRCode(q, "http://sldv.pp.ua/dodep/confirm?v="+value);
+}
+</script>
+<div id="main">
+    <label for="dodep_value">Сумма додепа</label>
+    <input type="number" id="dodep_value" name="dodep_value" onchange="setval(this.value)">
+    <label for="dodep_value">Z$</label>
+    <br>
+    <button onclick="gen_qr()">Депнуть</button>
+    <div id="qrcode"></div>
+</div>

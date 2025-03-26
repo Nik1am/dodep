@@ -1,0 +1,32 @@
+<style>
+    #main {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+    }
+    #like {
+        transition-duration: 0.5s;
+        opacity: 0;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        pointer-events: none;
+    }
+    #qrcode {
+        margin: 3%;
+    }
+</style>
+
+<script>
+params = new URLSearchParams(window.location.search)
+</script>
+
+<div id="main">
+    <h1>Сумма додепа: <img src="1" onerror="this.outerHTML = params.get('v')"> Z$</h1>
+    <button onclick="document.getElementById('like').style.opacity = '1'"><h2>Подтвердить</h2></button>
+</div>
+<img id="like" src="sticker.webp">
